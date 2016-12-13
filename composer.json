@@ -1,0 +1,11 @@
+{
+  "name": "crocodile2u/validity",
+  "autoload": {
+    "psr-0" : {
+      "SaferBlitz" : "./src"
+    }
+  },
+  "require": {
+    "ext-blitz": "*"
+  }
+}
