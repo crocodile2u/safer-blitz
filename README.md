@@ -1,5 +1,5 @@
 # safer-blitz
-A small extension to Blitz template engine, with auto-escaping support.
+A small extension to [Blitz template engine](http://alexeyrybak.com/blitz/blitz_en.html), with auto-escaping support.
 
 Initialize view:
 
