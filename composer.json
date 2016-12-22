@@ -1,5 +1,5 @@
 {
-  "name": "crocodile2u/validity",
+  "name": "crocodile2u/safer-blitz",
   "autoload": {
     "psr-0" : {
       "SaferBlitz" : "./src"
