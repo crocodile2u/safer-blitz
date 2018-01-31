@@ -1,5 +1,40 @@
 # safer-blitz
-A small extension to [Blitz template engine](http://alexeyrybak.com/blitz/blitz_en.html), with auto-escaping support.
+A small extension to [Blitz template engine](https://github.com/alexeyrybak/blitz), 
+adding template inheritance and auto-escaping.
+
+## Template inheritance
+
+**article.tpl**:
+
+```html
+<article>text</article>
+```
+
+**layout.tpl**:
+
+```html
+<header/>
+{{ raw(content) }}
+<footer/>
+```
+
+**PHP code**:
+
+```php
+$view = new View("article.tpl");
+$view->extend("layout.tpl");
+echo $view->parse();
+```
+
+**The output**:
+
+```html
+<header/>
+<article>text</article>
+<footer/>
+```
+
+## Auto-escaping
 
 Initialize view:
 

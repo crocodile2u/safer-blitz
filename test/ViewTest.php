@@ -2,10 +2,35 @@
 
 namespace SaferBlitz\Test;
 
+use PHPUnit\Framework\TestCase;
 use SaferBlitz\View;
 
-class ViewTest extends \PHPUnit_Framework_TestCase
+class ViewTest extends TestCase
 {
+    function testExtend()
+    {
+        $child = new View();
+
+        $childBody = <<<BLITZ
+{{must_be_escaped_once}}
+BLITZ;
+        $parentBody = <<<BLITZ
+header
+{{raw(content)}}
+footer
+BLITZ;
+        $unescaped = "&";
+        $child->load($childBody);
+        $child->set(["must_be_escaped_once" => $unescaped]);
+
+        $parent = new View();
+        $parent->load($parentBody);
+
+        $child->extend($parent);
+
+        $result = $child->parse();
+        $this->assertEquals("header\n&amp;\nfooter", $result);
+    }
     function testAutoescaping()
     {
         $view = new View();
