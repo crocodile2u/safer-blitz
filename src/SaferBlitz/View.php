@@ -64,6 +64,14 @@ class View extends \Blitz
     }
 
     /**
+     * @return \Blitz|View|null
+     */
+    protected function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
      * @param array|null $iterations
      * @return mixed
      */
